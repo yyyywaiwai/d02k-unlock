@@ -7,6 +7,7 @@
 - `fastboot_with_reset.py`：macOS の libusb を使う Fastboot 接続補助。
 - `src/nve_ctl.c`、`bin/`：NVE 操作ツールのソースと実機用 arm64 バイナリ。一時 root 用バイナリの差分は `patches/`、ライセンスは `licenses/` に置く。
 - `test_unlock_d02k.py`：合成 NVME データによるオフラインテスト。
+- `build_cve_root.sh`、`test_build_cve_root.py`：固定ソースの取得・パッチ適用・ビルドと、事前検査テスト。生成物は `work/` に置く。
 
 実行条件の変更時は `README.md`、検証結果の記録時は `FINDINGS.md`、配置の確認時は `docs/DIRECTORY_LAYOUT.md` を参照する。過去のメモリと現在のファイルが食い違う場合は、現状を確認して判断する。削除済みの XNU・iOS 16・uniLoader 関連データを既存の開発環境として扱わず、過去の未実施診断を自動再開しない。
 
@@ -14,7 +15,7 @@
 Python 3.11 以降を使用する。Python の追加パッケージは不要。次のコマンドはリポジトリルートで実行する。
 
 ```bash
-python3 -B -m unittest -v test_unlock_d02k.py
+python3 -B -m unittest -v test_unlock_d02k.py test_build_cve_root.py
 ```
 
 このテストは端末に接続せず、合成データだけを使う。変更に応じて実行し、その変更による失敗を修正して再実行する。
