@@ -4,6 +4,8 @@ HUAWEI d-02K（HDL-L0J、8.0.0.153(C341)）を物理 testpoint ショートな�
 
 ## ファイル
 
+ローカルの調査データを含む配置と移動履歴の見方は [ディレクトリ案内](docs/DIRECTORY_LAYOUT.md) を参照してください。
+
 | 場所 | 内容 |
 | --- | --- |
 | `unlock_d02k.py` | ADB で新しいバックアップを取得し、USRKEY の書き込みから Fastboot の最終確認まで進めるスクリプト |
@@ -12,7 +14,7 @@ HUAWEI d-02K（HDL-L0J、8.0.0.153(C341)）を物理 testpoint ショートな�
 | `bin/cve-root-arm64`、`patches/` | 一時 root に使用したバイナリと、元の P20 Lite 向けソースとの差分 |
 | `test_unlock_d02k.py` | NVME の `USRKEY` を読む処理のオフラインテスト |
 
-バックアップ、端末固有の解除コード、実行時の退避データ、uniloader／iOS 関連の作業ファイルは公開対象に含めていません。`backup/`、`runs/`、`work/`、`upstream-uniloader/` は `.gitignore` で除外しています。
+バックアップ、端末固有の解除コード、実行時の退避データは公開対象に含めていません。`backup/`、`runs/` は `.gitignore` で除外しています。XNU・iOS 16・uniLoader 関連のローカル調査データは削除済みです。
 
 ## スクリプトを使う場合
 
